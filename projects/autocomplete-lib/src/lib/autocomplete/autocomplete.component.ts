@@ -126,7 +126,7 @@ export class AutocompleteComponent implements OnInit, OnChanges, ControlValueAcc
 
 
   // custom templates
-  @ContentChild(TemplateRef)
+  @ContentChild(TemplateRef) customTemplateRef;
   @Input() itemTemplate: TemplateRef<any>;
   @Input() notFoundTemplate: TemplateRef<any>;
 
