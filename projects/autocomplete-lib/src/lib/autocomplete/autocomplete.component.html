@@ -40,14 +40,14 @@
         <div [class.complete-selected]="idx === selectedIdx" *ngIf='isType(item)'
              (click)="select(item)">
           <ng-container
-            *ngTemplateOutlet="itemTemplate;  context: { $implicit: item | highlight: toHighlight }">
+            *ngTemplateOutlet="itemTemplate?itemTemplate:customTemplateRef;  context: { $implicit: item | highlight: toHighlight }">
           </ng-container>
         </div>
         <!--object logic-->
         <div [class.complete-selected]="idx === selectedIdx" *ngIf='!isType(item)'
              (click)="select(item)">
           <ng-container
-            *ngTemplateOutlet="itemTemplate; context: { $implicit: item | highlight: toHighlight : searchKeyword }">
+            *ngTemplateOutlet="itemTemplate?itemTemplate:customTemplateRef; context: { $implicit: item | highlight: toHighlight : searchKeyword }">
           </ng-container>
         </div>
       </li>
@@ -70,13 +70,13 @@
         <!--string logic-->
         <div [class.complete-selected]="idx === selectedIdx" *ngIf='isType(item)' (click)="select(item)">
           <ng-container
-            *ngTemplateOutlet="itemTemplate;  context: { $implicit: item }">
+            *ngTemplateOutlet="itemTemplate?itemTemplate:customTemplateRef;  context: { $implicit: item }">
           </ng-container>
         </div>
         <!--object logic-->
         <div [class.complete-selected]="idx === selectedIdx" *ngIf='!isType(item)' (click)="select(item)">
           <ng-container
-            *ngTemplateOutlet="itemTemplate; context: { $implicit: item }">
+            *ngTemplateOutlet="itemTemplate?itemTemplate:customTemplateRef; context: { $implicit: item }">
           </ng-container>
         </div>
         <div class="x" (click)="removeHistoryItem(idx, $event)">
